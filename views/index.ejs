@@ -1,19 +1,45 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Inventory Application</title>
-  </head>
-  <body>
-    <div style="margin: 50px; font-size: 14px; font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;">
-      <div style="display: flex; gap: 10px; font-size: 25px;">
-        <a style="text-decoration: none; color: black;" href="http://localhost:3000/"><p>Home</p></a>
-        <p>|</p>
-        <a style="text-decoration: none; color: black;" href="http://localhost:3000/About"><p>About</p></a>
-        <p>|</p>
-        <a style="text-decoration: none; color: black;" href="https://github.com/GeneZijlboot/Inventory-Application"><p>Copyright © Gene Zijlboot</p></a>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Inventory Application</title>
+    </head>
+    <body>
+      <div style="display: grid; grid-template-columns: 1.5fr 3fr 1.5fr;">
+        <!-- left blank -->
+        <div></div>
+
+        <!-- body of the Page -->
+        <div>
+          <div style="display: flex; justify-content: space-between;">
+            <div>
+              <p style="font-size:30px; color: #4d85a6;">Game Base Inventory</p>
+            </div>
+            <div style="display: flex; gap: 35px; padding: 15px; font-size: 20px;">
+              <a style="text-decoration: none; color: rgb(62, 60, 60)" href="http://localhost:3000/About"><p>About</p></a>
+              <a style="text-decoration: none; color: rgb(62, 60, 60)" href="http://localhost:3000/Genres"><p>Genres</p></a>
+              <a style="text-decoration: none; color: rgb(62, 60, 60)" href="http://localhost:3000/Games"><p>Games</p></a>
+            </div>
+          </div>
+
+          <div style="border: solid 1px rgb(111, 109, 109);"></div>
+
+          <div>
+            <p style="color: rgb(62, 60, 60); font-size: 20px;">Welcome to Game Base Inventory, the place where you find and store all of your new favorite games!</p>
+            <p style="color: rgb(62, 60, 60); font-size: 20px;">Database contains the following:</p>
+
+            <!-- Database Data -->
+            <ul style="display: flex; gap: 10px; flex-direction: column; border: 1px solid rgb(62, 60, 60); border-radius: 5px; margin:10px; padding: 10px;">
+              <li style="flex: 1; list-style-type: none;"><strong>Games:</strong></li>
+              <li style="flex: 1; list-style-type: none;"><strong>Genres:</strong></li>
+            </ul> 
+          </div>
+
+          <div style="border: solid 1px rgb(111, 109, 109);"></div>
+          <div style="display: flex; justify-content:center;"><a style="text-decoration: none; font-size: 25px; color: #4d85a6; " href="https://github.com/GeneZijlboot/Inventory-Application"><p>Copyright © Gene Zijlboot</p></a></div>
+        </div>
+
+        <!-- right blank -->
+        <div></div>
       </div>
-      <p style="font-size: 20px;">Bird Inventory Application</p>
-      <p style="font-size: 20px;">Database contains the following:</p>
-    </div>
-  </body>
-</html>
+    </body>
+  </html>

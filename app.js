@@ -8,11 +8,19 @@ const port = 3000;
 //set up mongoose connection
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB = "mongodb+srv://Gene:<password>@genedb.q7uhupi.mongodb.net/Inventory_Application?retryWrites=true&w=majority";
+const mongoDB = "mongodb+srv://Gene:Admin@genedb.q7uhupi.mongodb.net/Inventory_Application?retryWrites=true&w=majority";
 
 main().catch((err) => console.log(err));
 async function main() {
     await mongoose.connect(mongoDB)
+    console.log("connected");
+
+    // Assuming you have a model named 'Item' for your collection
+    const Birds = mongoose.model('Birds', { name: String });
+
+    // Example: Log all items in the 'items' collection
+    const birds = await Birds.find({});
+    console.log("Items in the database:", Birds);
 }
 
 app.get("/", (req, res, next) => {
