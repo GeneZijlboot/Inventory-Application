@@ -25,7 +25,22 @@ async function main() {
 
 app.get("/", (req, res, next) => {
     console.log("Home Page entered");
-    res.render('index');
+    res.render('Home');
+});
+
+app.get("/About", (req, res, next) => {
+    console.log("About Page entered");
+    res.render('About');
+});
+
+app.get("/Genres", (req, res, next) => {
+    console.log("Genres Page entered");
+    res.render('Genres');
+});
+
+app.get("/Games", (req, res, next) => {
+    console.log("Games Page entered");
+    res.render('Games');
 });
 
 app.listen(port, () => {

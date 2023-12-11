@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Inventory Application</title>
+  </head>
+  <body>
+    <div class="Container">
+      <!-- left blank -->
+      <div></div>
+
+      <!-- body of the Page -->
+      <div>
+        <div class="App">
+          <div>
+            <a class="Title" href="http://localhost:3000/"><p>Game Base Inventory</p></a>
+          </div>
+          <div class="HyperLink-Box">
+            <a class="HyperLink" href="http://localhost:3000/About"><p>About</p></a>
+            <a class="HyperLink" href="http://localhost:3000/Genres"><p>Genres</p></a>
+            <a class="HyperLink" href="http://localhost:3000/Games"><p>Games</p></a>
+          </div>
+        </div>
+
+        <div class="Devider"></div>
+        
+        <div class="Devider"></div>
+
+        <div class="Copyright"><a class="CopyrightLink" href="https://github.com/GeneZijlboot/Inventory-Application"><p>Copyright © Gene Zijlboot</p></a></div>
+      </div>
+
+      <!-- right blank -->
+      <div></div>
+      <style>
+        .Container{
+          display: grid;
+          grid-template-columns: 1.5fr 3fr 1.5fr;
+        }
+
+        .Body{
+          padding-top: 10px;
+          padding-bottom: 20px;
+        }
+
+        .App{
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .Title{
+          text-decoration: none;
+          font-size:30px;
+          color: #4d85a6;
+        }
+
+        .HyperLink-Box{
+          display: flex;
+          gap: 35px;
+          padding: 15px;
+          font-size: 20px;
+        }
+
+        .HyperLink {
+          position: relative;
+          text-decoration: none;
+          color: rgb(62, 60, 60);
+        }
+
+        .HyperLink:hover {
+          color: rgb(62, 60, 60);
+        }
+
+        .HyperLink:hover::after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: 17px;
+          left: 0;
+          width: 100%;
+          border-bottom: 2px solid #4d85a6;
+        }
+
+        .Devider{
+          border: solid 1px rgb(111, 109, 109);
+        }
+
+        .Copyright{
+          display: flex;
+          justify-content:center;
+        }
+
+        .CopyrightLink{
+          text-decoration: none;
+          font-size: 25px;
+          color: #4d85a6; 
+        }
+      </style>
+    </div>
+  </body>
+</html>

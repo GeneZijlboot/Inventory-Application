@@ -12,7 +12,7 @@
       <div>
         <div class="App">
           <div>
-            <p class="Title">Game Base Inventory</p>
+            <a class="Title" href="http://localhost:3000/"><p>Game Base Inventory</p></a>
           </div>
           <div class="HyperLink-Box">
             <a class="HyperLink" href="http://localhost:3000/About"><p>About</p></a>
@@ -22,18 +22,19 @@
         </div>
 
         <div class="Devider"></div>
+        
+        <div class="Body">
+          <div>
+            <p style="color: rgb(62, 60, 60); font-size: 20px;">Welcome to Game Base Inventory, the place where you find and store all of your new favorite games!</p>
+            <p style="color: rgb(62, 60, 60); font-size: 20px;">Database contains the following:</p>
 
-        <div>
-          <p style="color: rgb(62, 60, 60); font-size: 20px;">Welcome to Game Base Inventory, the place where you find and store all of your new favorite games!</p>
-          <p style="color: rgb(62, 60, 60); font-size: 20px;">Database contains the following:</p>
-
-          <!-- Database Data -->
-          <ul class="list-group">
-            <li class="list-group-item"><strong>Categories:</strong></li>
-            <li class="list-group-item"><strong>Games:</strong></li>
-          </ul> 
+            <!-- Database Data -->
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Categories:</strong></li>
+              <li class="list-group-item"><strong>Games:</strong></li>
+            </ul> 
+          </div>
         </div>
-
         <div class="Devider"></div>
 
         <div class="Copyright"><a class="CopyrightLink" href="https://github.com/GeneZijlboot/Inventory-Application"><p>Copyright © Gene Zijlboot</p></a></div>
@@ -47,12 +48,18 @@
           grid-template-columns: 1.5fr 3fr 1.5fr;
         }
 
+        .Body{
+          padding-top: 10px;
+          padding-bottom: 20px;
+        }
+
         .App{
           display: flex;
           justify-content: space-between;
         }
 
         .Title{
+          text-decoration: none;
           font-size:30px;
           color: #4d85a6;
         }
