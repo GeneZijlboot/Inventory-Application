@@ -33,9 +33,21 @@ app.get("/About", (req, res, next) => {
     res.render('About');
 });
 
-app.get("/Genres", (req, res, next) => {
-    console.log("Genres Page entered");
-    res.render('Genres');
+app.get("/Genres", async (req, res, next) => {
+    try {
+      const client = await connectToMongoDB();
+      const database = client.db(); // Get the default database
+      const collections = await database.listCollections().toArray();
+      
+      // Extract collection names from the result
+      const collectionNames = collections.map(collection => collection.name);
+  
+      // Render the view with collection names
+      res.render('Genres', { collectionNames });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send('Internal Server Error');
+    }
 });
 
 app.get("/Games", (req, res, next) => {

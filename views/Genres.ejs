@@ -23,6 +23,19 @@
 
         <div class="Devider"></div>
         
+        <!-- Database Data -->
+        <div>
+          <p style="color: rgb(62, 60, 60); font-size: 20px;">Genres:</p>
+
+          <ul class="list-group">
+            <% collectionNames.forEach(function(collectionName) { %>
+              <li class="list-group-item"><%= collectionName %></li>
+            <% }); %>
+          </ul>
+
+          <button>+ Add Genre</button>
+        </div>
+
         <div class="Devider"></div>
 
         <div class="Copyright"><a class="CopyrightLink" href="https://github.com/GeneZijlboot/Inventory-Application"><p>Copyright © Gene Zijlboot</p></a></div>
@@ -77,6 +90,51 @@
           left: 0;
           width: 100%;
           border-bottom: 2px solid #4d85a6;
+        }
+
+        ul {
+          margin-top: 10px;
+          padding: 0;
+          list-style-type: none;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+
+        li {
+          color: rgb(62, 60, 60);
+          font-size: 15px;
+          line-height: 1.3;
+          border-bottom: 1px solid #ccc;
+          padding: 10px;
+          margin: 0;
+        }
+
+        li:last-child {
+          border-bottom: none;
+        }
+
+        button{
+          border:#4d85a6 solid 2px;
+          background-color:#4d85a6;
+          border-radius: 15px;
+          color: white;
+          margin-bottom: 10px;
+          font-size: 20px;
+          height: 35px;
+          width: 150px;
+          cursor: pointer;
+        }
+
+        button:hover{
+          border:#4d85a6 solid 2px;
+          background-color:white;
+          border-radius: 15px;
+          color:#4d85a6;
+          margin-bottom: 10px;
+          font-size: 20px;
+          height: 35px;
+          width: 150px;
+          cursor: pointer;
         }
 
         .Devider{
