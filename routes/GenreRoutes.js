@@ -2,38 +2,14 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 
+//getting function to load database data and creating a collection
+const { connectToMongoDB } = require('../dbHandlings/DB_Connect');
+const { createCollection } = require('../dbHandlings/createCollection');
+
 // Use middleware to parse the form data
 router.use(bodyParser.urlencoded({ extended: true }));
 
-const { MongoClient } = require('mongodb');
-
-const mongoDB_URI = "mongodb+srv://Gene:Admin@genedb.q7uhupi.mongodb.net/GameGenres?retryWrites=true&w=majority";
-
-async function connectToMongoDB(){
-    const client = new MongoClient(mongoDB_URI);
-    try {
-        await client.connect();
-        console.log('Connected to MongoDB database!');
-        return client
-    } catch(error) {
-        console.error('Error connecting to MongoDB:', error);
-        throw error;
-    }
-}
-
-async function createCollection(database, genre){
-    try {   
-        await database.createCollection(genre);
-        console.log(`Collection '${genre}' created successfully.`);
-    } catch (error) {
-        console.error(`Error creating new Genre '${genre}':`, error);
-    }
-}
-
-
-
 //different routes:
-
 router.get("/", async (req, res, next) => {
     const client = await connectToMongoDB();
     const database = client.db(); // Get the default database
