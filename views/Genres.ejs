@@ -33,7 +33,12 @@
             <% }); %>
           </ul>
 
-          <button>+ Add Genre</button>
+          <button onclick="addGenre()">+ Add Genre</button>
+          <script>
+            function addGenre() {
+                window.location.href = 'http://localhost:3000/Genres/AddGenre';
+            }
+          </script>
         </div>
 
         <div class="Devider"></div>
