@@ -29,7 +29,7 @@
 
           <ul class="list-group">
             <% collectionNames.forEach(function(collectionName) { %>
-              <li class="list-group-item"><%= collectionName %></li>
+              <li class="list-group-item"><a class="HyperLink" href="http://localhost:3000/<%= collectionName %>"><%= collectionName %></a></li>
             <% }); %>
           </ul>
 
@@ -81,20 +81,6 @@
           position: relative;
           text-decoration: none;
           color: rgb(62, 60, 60);
-        }
-
-        .HyperLink:hover {
-          color: rgb(62, 60, 60);
-        }
-
-        .HyperLink:hover::after {
-          content: "";
-          display: block;
-          position: absolute;
-          bottom: 17px;
-          left: 0;
-          width: 100%;
-          border-bottom: 2px solid #4d85a6;
         }
 
         ul {
