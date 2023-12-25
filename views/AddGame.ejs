@@ -23,31 +23,27 @@
 
         <div class="Devider"></div>
 
-        <div class="Body">
-          <p style="color: rgb(62, 60, 60); font-size: 20px;"><%= collectionName %>:</p>
-
-          <ul class="list-group">
-            <% document.forEach(function(documents) { %>
-              <li class="list-group-item">
-                <a class="HyperLink" href="http://localhost:3000/Genres/<%= collectionName %>/<%= documents._id %>">
-                  <%= documents.title %>
-                </a>
-              </li>
-            <% }); %>
-          </ul>
-
-          <button onclick="BackToGenre()">Go Back</button>
-          <button onclick="AddGame()">+ Add Game</button>
-          <script>
-            function BackToGenre() {
-              window.location.href = 'http://localhost:3000/Genres';
-            }
-            function AddGame() {
-              window.location.href = 'http://localhost:3000/Genres/AddGame';
-            }
-          </script>
-
+        <div style="display: flex; justify-content:center;">
+          <div class="GenreForm">
+            <div style="text-align: center;">
+              <p style="font-size:30px; margin: 0px;">New Game:</p>
+              <div>
+                <form method="POST" action="http://localhost:3000/Genres">
+                  <input style="margin: 20px;" type="text" id="Genre" name="Genre" required>
+                  <br>
+                  <button type="submit">+ Add Game</button>
+              </form> 
+              </div>  
+              <button onclick="goBack()">Go Back</button>   
+            </div>       
+          </div>
         </div>
+
+        <script>
+          function goBack() {
+              window.location.href = 'http://localhost:3000/Genres';
+          }
+        </script>
         
         <div class="Devider"></div>
 
@@ -63,11 +59,8 @@
         }
 
         .Body{
-          font-size: 20px;
           padding-top: 10px;
           padding-bottom: 20px;
-          padding-left: 10px;
-          padding-right: 10px;
         }
 
         .App{
@@ -94,25 +87,26 @@
           color: rgb(62, 60, 60);
         }
 
-        ul {
-          margin-top: 10px;
-          padding: 0;
-          list-style-type: none;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-        }
-
-        li {
+        .HyperLink:hover {
           color: rgb(62, 60, 60);
-          font-size: 15px;
-          line-height: 1.3;
-          border-bottom: 1px solid #ccc;
-          padding: 10px;
-          margin: 0;
         }
 
-        li:last-child {
-          border-bottom: none;
+        .HyperLink:hover::after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: 17px;
+          left: 0;
+          width: 100%;
+          border-bottom: 2px solid #4d85a6;
+        }
+
+        .GenreForm{
+          display: inline-block;
+          margin: 50px;
+          padding: 20px;
+          border:rgb(111, 109, 109) solid 2px;
+          border-radius: 25px;
         }
 
         button{
@@ -138,7 +132,7 @@
           width: 150px;
           cursor: pointer;
         }
-
+        
         .Devider{
           border: solid 1px rgb(111, 109, 109);
         }

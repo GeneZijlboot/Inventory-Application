@@ -24,29 +24,9 @@
         <div class="Devider"></div>
 
         <div class="Body">
-          <p style="color: rgb(62, 60, 60); font-size: 20px;"><%= collectionName %>:</p>
-
-          <ul class="list-group">
-            <% document.forEach(function(documents) { %>
-              <li class="list-group-item">
-                <a class="HyperLink" href="http://localhost:3000/Genres/<%= collectionName %>/<%= documents._id %>">
-                  <%= documents.title %>
-                </a>
-              </li>
-            <% }); %>
-          </ul>
-
-          <button onclick="BackToGenre()">Go Back</button>
-          <button onclick="AddGame()">+ Add Game</button>
-          <script>
-            function BackToGenre() {
-              window.location.href = 'http://localhost:3000/Genres';
-            }
-            function AddGame() {
-              window.location.href = 'http://localhost:3000/Genres/AddGame';
-            }
-          </script>
-
+          <p style="color: rgb(62, 60, 60); font-size: 20px;"><%= document.title %>:</p>
+          <p style="color: rgb(62, 60, 60); font-size: 20px;"><%= document.description %>:</p>
+          <p style="color: rgb(62, 60, 60); font-size: 20px;"><%= document.price %>:</p>
         </div>
         
         <div class="Devider"></div>
