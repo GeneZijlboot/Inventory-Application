@@ -10,18 +10,30 @@ const PORT = 3000;
 //getting function to load database data
 const { connectToMongoDB } = require('./dbHandlings/DB_Connect');
 
-//main two Routes
+// main two Routes
 app.get("/", async (req, res, next) => {
     const client = await connectToMongoDB();
     const database = client.db('GameGenres');
     const collections = await database.listCollections().toArray();
+    let totalDocumentCount = 0;
+  
+    for (const collectionInfo of collections) {
+      const collectionName = collectionInfo.name;
+      const collection = database.collection(collectionName);
+  
+      // Find all documents in the collection and count them
+      const documentCount = await collection.countDocuments();
+      totalDocumentCount += documentCount;
+    }
+  
     const collectionCount = collections.length;
-    console.log('amount of collections: ' + collectionCount);
-    
+    console.log('Amount of collections: ' + collectionCount);
+    console.log('Total number of documents: ' + totalDocumentCount);
+  
     console.log("Home Page entered");
-    res.render('Home', { collectionCount });
-});
-
+    res.render('Home', { collectionCount, totalDocumentCount });
+  });
+  
 app.get("/About", (req, res, next) => {
     console.log("About Page entered");
     res.render('About');
