@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
+const { ObjectId } = require('mongodb');
 
 // Getting function to load database data and creating a collection
 const { connectToMongoDB } = require('../dbHandlings/DB_Connect');
@@ -55,7 +56,6 @@ router.get("/:collectionName", async (req, res, next) => {
         const client = await connectToMongoDB();
         const database = client.db('GameGenres');
         const collection = database.collection(collectionName);
-        console.log(collection)
 
         // Fetch a specific document by ID (you can use a different criteria)
         const document = await collection.find({}).toArray();
@@ -71,23 +71,26 @@ router.get("/:collectionName", async (req, res, next) => {
     }
 });
 
-router.get("/:collectionName/:documents_id", async (req, res, next) => {
+router.get("/:collectionName/:documentId", async (req, res, next) => {
     const collectionName = req.params.collectionName;
-    const documents_id = req.params.documents_id;
+    const documentId = req.params.documentId;
 
-    // Connect to the MongoDB database
-    const client = await connectToMongoDB();
-    const database = client.db('GameGenres');
-    const collection = database.collection(collectionName);
+    try {
+        // Connect to the database and look for the specific collection
+        const client = await connectToMongoDB();
+        const database = client.db('GameGenres');
+        const collection = database.collection(collectionName);
 
-    // Fetch a specific document by ID
-    const document = await collection.findOne({ _id: documents_id });
+        // Fetch a specific document by ID using ObjectId
+        const document = await collection.findOne({ _id: new ObjectId(documentId) });
 
-    // Close the MongoDB connection
-    await client.close();
+        res.render('SpecificGame', { document , collectionName });
 
-    // Render the view with the document content
-    res.render('SpecificGame', { document , collectionName });
+        console.log(document);
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
 module.exports = router;

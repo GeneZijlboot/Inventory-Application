@@ -24,9 +24,15 @@
         <div class="Devider"></div>
 
         <div class="Body">
-          <p style="color: rgb(62, 60, 60); font-size: 20px;"><%= document.title %>:</p>
-          <p style="color: rgb(62, 60, 60); font-size: 20px;"><%= document.description %>:</p>
-          <p style="color: rgb(62, 60, 60); font-size: 20px;"><%= document.price %>:</p>
+          <p style="color: rgb(62, 60, 60); font-size: 25px;"><%= document.title %>:</p>
+          <p style="color: rgb(62, 60, 60); font-size: 20px;"><%= document.description %></p>
+          <p style="color: rgb(62, 60, 60); font-size: 20px;">Price: <%= document.price %></p>
+          <button onclick="BackToGenre()">Go Back</button>
+          <script>
+            function BackToGenre() {
+              window.location.href = 'http://localhost:3000/Genres/<%= collectionName %>';
+            }
+          </script>
         </div>
         
         <div class="Devider"></div>
