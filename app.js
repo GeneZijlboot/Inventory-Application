@@ -42,7 +42,7 @@ app.get("/", async (req, res, next) => {
   
 app.get("/About", (req, res, next) => {
     console.log("About Page entered");
-    res.render('About');
+    res.render('About', { BASE_URL: BASE_URL });
 });
 
 //configuring /Genre Routes
