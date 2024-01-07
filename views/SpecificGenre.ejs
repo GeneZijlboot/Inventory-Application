@@ -36,18 +36,20 @@
             <% }); %>
           </ul>
 
-          <button onclick="BackToGenre()">Go Back</button>
-          <button onclick="DeleteGame()">Delete Genre</button>
-          <button onclick="AddGame()">+ Add Game</button>
+          <div style="display: flex; gap: 5px;">
+            <button onclick="BackToGenre()">Go Back</button>
+            <form method="POST" action="/Genres/<%= collectionName %>?_method=DELETE">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit">Delete Genre</button>
+            </form>
+            <button onclick="AddGame()">+ Add Game</button>
+          </div>
           <script>
             function BackToGenre() {
               window.location.href = 'http://localhost:3000/Genres';
             }
             function AddGame() {
               window.location.href = 'http://localhost:3000/Genres/AddGame/<%= collectionName %>';
-            }
-            function DeleteGame() {
-              window.location.href = 'http://localhost:3000/Genres';
             }
           </script>
 

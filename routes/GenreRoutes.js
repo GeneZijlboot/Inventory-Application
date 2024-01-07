@@ -121,5 +121,23 @@ router.delete("/:collectionName/:documentId", async (req, res, next) => {
         res.status(500).send('Internal Server Error');
     }
 });
+router.delete("/:collectionName", async (req, res, next) => {
+    const collectionName = req.params.collectionName;
+
+    try {
+        const client = await connectToMongoDB();
+        const database = client.db('GameGenres');
+
+        await database.collection(collectionName).drop();
+
+        res.redirect('/Genres');
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
+
 
 module.exports = router;

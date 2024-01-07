@@ -27,7 +27,7 @@
           <p style="color: rgb(62, 60, 60); font-size: 25px;"><%= document.title %>:</p>
           <p style="color: rgb(62, 60, 60); font-size: 20px;"><%= document.description %></p>
           <p style="color: rgb(62, 60, 60); font-size: 20px;">Price: <%= document.price %></p>
-          <div style="display: flex;">
+          <div style="display: flex; gap: 5px;">
             <button onclick="BackToGenre()">Go Back</button>
 
             <form id="deleteForm" method="POST" action="/Genres/<%= collectionName %>/<%= document._id %>?_method=DELETE">
