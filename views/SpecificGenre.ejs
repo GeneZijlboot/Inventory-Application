@@ -37,6 +37,7 @@
           </ul>
 
           <button onclick="BackToGenre()">Go Back</button>
+          <button onclick="DeleteGame()">Delete Genre</button>
           <button onclick="AddGame()">+ Add Game</button>
           <script>
             function BackToGenre() {
@@ -44,6 +45,9 @@
             }
             function AddGame() {
               window.location.href = 'http://localhost:3000/Genres/AddGame/<%= collectionName %>';
+            }
+            function DeleteGame() {
+              window.location.href = 'http://localhost:3000/Genres';
             }
           </script>
 

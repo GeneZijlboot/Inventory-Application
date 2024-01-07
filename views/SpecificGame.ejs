@@ -27,14 +27,22 @@
           <p style="color: rgb(62, 60, 60); font-size: 25px;"><%= document.title %>:</p>
           <p style="color: rgb(62, 60, 60); font-size: 20px;"><%= document.description %></p>
           <p style="color: rgb(62, 60, 60); font-size: 20px;">Price: <%= document.price %></p>
-          <button onclick="BackToGenre()">Go Back</button>
-          <button onclick="DeleteGame()">Delete Game</button>
+          <div style="display: flex;">
+            <button onclick="BackToGenre()">Go Back</button>
+
+            <form id="deleteForm" method="POST" action="/Genres/<%= collectionName %>/<%= document._id %>?_method=DELETE">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="button" onclick="deleteGame()">Delete Game</button>
+            </form>
+          
+          </div>
           <script>
             function BackToGenre() {
               window.location.href = 'http://localhost:3000/Genres/<%= collectionName %>';
             }
-            function DeleteGame() {
-              BackToGenre()
+            function deleteGame() {
+                // You can add confirmation logic here if needed
+                document.getElementById('deleteForm').submit();
             }
           </script>
         </div>
