@@ -12,12 +12,12 @@
       <div>
         <div class="App">
           <div>
-            <a class="Title" href="http://localhost:3000/"><p>Game Base Inventory</p></a>
+            <a class="Title" href="<%= BASE_URL %>"><p>Game Base Inventory</p></a>
           </div>
           <div class="HyperLink-Box">
-            <a class="HyperLink" href="http://localhost:3000/"><p>Home</p></a>
-            <a class="HyperLink" href="http://localhost:3000/About"><p>About</p></a>
-            <a class="HyperLink" href="http://localhost:3000/Genres"><p>Genres</p></a>
+            <a class="HyperLink" href="<%= BASE_URL %>"><p>Home</p></a>
+            <a class="HyperLink" href="<%= BASE_URL %>/About"><p>About</p></a>
+            <a class="HyperLink" href="<%= BASE_URL %>/Genres"><p>Genres</p></a>
           </div>
         </div>
 
@@ -28,7 +28,7 @@
             <div style="text-align: center;">
               <p style="font-size:30px; margin: 0px;">New Game:</p>
               <div>
-                <form method="POST" action="http://localhost:3000/Genres/<%= collectionName %>">
+                <form method="POST" action="<%= BASE_URL %>Genres/<%= collectionName %>">
                   <input style="margin-top: 20px;" type="text" id="title" name="title" placeholder="title" required>
                   <br>
                   <input style="margin: 10px;" type="text" id="description" name="description" placeholder="description" required>
@@ -45,7 +45,7 @@
 
         <script>
           function goBack() {
-              window.location.href = 'http://localhost:3000/Genres/<%= collectionName %>';
+              window.location.href = '<%= BASE_URL %>/Genres/<%= collectionName %>';
           }
         </script>
         

@@ -7,6 +7,11 @@ app.set('view engine', 'ejs');
 //setting port
 const PORT = 3000;
 
+const dotenv = require("dotenv"); // Add this line to require dotenv
+// Load environment variables from a .env file
+dotenv.config();
+const BASE_URL = process.env.BASE_URL || `http://localhost:${port}`;
+
 //getting function to load database data
 const { connectToMongoDB } = require('./dbHandlings/DB_Connect');
 
@@ -31,7 +36,7 @@ app.get("/", async (req, res, next) => {
     console.log('Total number of documents: ' + totalDocumentCount);
   
     console.log("Home Page entered");
-    res.render('Home', { collectionCount, totalDocumentCount });
+    res.render('Home', { collectionCount, totalDocumentCount, BASE_URL: BASE_URL });
   });
   
 app.get("/About", (req, res, next) => {
@@ -46,7 +51,7 @@ app.use('/Genres', genreRouter) ;
 //run the server on port 3000
 app.listen(PORT, async () => {
     try {
-        console.log(`Server running on: http://localhost:${PORT}`);
+        console.log(`Server running on: ${BASE_URL}`);
     } catch(error){
         console.log(error);
         process.exit(1);

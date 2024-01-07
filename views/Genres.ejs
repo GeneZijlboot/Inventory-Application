@@ -12,12 +12,12 @@
     <div>
       <div class="App">
         <div>
-          <a class="Title" href="http://localhost:3000/"><p>Game Base Inventory</p></a>
+          <a class="Title" href="<%= BASE_URL %>"><p>Game Base Inventory</p></a>
         </div>
         <div class="HyperLink-Box">
-          <a class="HyperLink" href="http://localhost:3000/"><p>Home</p></a>
-          <a class="HyperLink" href="http://localhost:3000/About"><p>About</p></a>
-          <a class="HyperLink" href="http://localhost:3000/Genres"><p>Genres</p></a>
+          <a class="HyperLink" href="<%= BASE_URL %>"><p>Home</p></a>
+          <a class="HyperLink" href="<%= BASE_URL %>/About"><p>About</p></a>
+          <a class="HyperLink" href="<%= BASE_URL %>/Genres"><p>Genres</p></a>
         </div>
       </div>
 
@@ -30,7 +30,7 @@
         <ul class="list-group">
           <% collectionNames.forEach(function(collectionName) { %>
             <li class="list-group-item">
-              <a class="HyperLink" href="http://localhost:3000/Genres/<%= collectionName %>">
+              <a class="HyperLink" href="<%= BASE_URL %>/Genres/<%= collectionName %>">
                 <%= collectionName %>
               </a>
             </li>
@@ -40,7 +40,7 @@
         <button onclick="addGenre()">+ Add Genre</button>
         <script>
           function addGenre() {
-            window.location.href = 'http://localhost:3000/Genres/AddGenre';
+            window.location.href = '<%= BASE_URL %>/Genres/AddGenre';
           }
         </script>
       </div>
