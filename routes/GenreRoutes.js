@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const { ObjectId } = require('mongodb');
 const { connectToMongoDB, insertDocument } = require('../dbHandlings/DB_Connect');
 const { createCollection } = require('../dbHandlings/createCollection');
+const { createDocument } = require('../dbHandlings/createDocument');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
@@ -72,7 +73,7 @@ router.post('/:collectionName', async (req, res) => {
         const database = client.db('GameGenres');
         const collection = database.collection(collectionName);
 
-        await insertDocument(client, collection, document);
+        await createDocument(client, collection, document);
 
         // Redirect to the specific genre page after adding the game
         res.redirect(`/Genres/${collectionName}`);
