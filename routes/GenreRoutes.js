@@ -36,6 +36,32 @@ router.post('/', async (req, res) => {
     res.redirect('/Genres');
 });
 
+router.post('/:collectionName', async (req, res) => {
+    const collectionName = req.params.collectionName;
+
+    const document = {
+        Title: req.body.title,
+        Description: req.body.description,
+        Price: req.body.price
+    };
+
+    try {
+        // Connect to the database and look for the specific collection
+        const client = await connectToMongoDB();
+        const database = client.db('GameGenres');
+        const collection = database.collection(collectionName);
+
+        // Insert the new game document
+        await insertDocument(client, collection, document);
+
+        // Redirect back to the specific genre page
+        res.redirect(`/Genres/${collectionName}`);
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 //load the add genre page
 router.get("/AddGenre", (req, res, next) => {
     console.log("AddGenre Page entered");
@@ -43,7 +69,7 @@ router.get("/AddGenre", (req, res, next) => {
 });
 
 //load the add Game page
-router.get("/AddGame", (req, res, next) => {
+router.get("/AddGame", async (req, res, next) => {
     console.log("AddGenre Page entered");
     res.render('AddGame');
 });
