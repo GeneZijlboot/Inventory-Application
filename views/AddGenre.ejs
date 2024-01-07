@@ -28,7 +28,7 @@
             <div style="text-align: center;">
               <p style="font-size:30px; margin: 0px;">New Genre:</p>
               <div>
-                <form method="POST" action="http://localhost:3000/Genres">
+                <form method="POST" action="<%= BASE_URL %>/Genres">
                   <input style="margin: 20px;" type="text" id="Genre" name="Genre" required>
                   <br>
                   <button type="submit">+ Add Genre</button>
@@ -41,7 +41,7 @@
 
         <script>
           function goBack() {
-              window.location.href = 'http://localhost:3000/Genres';
+              window.location.href = '<%= BASE_URL %>/Genres';
           }
         </script>
         

@@ -30,7 +30,7 @@
           <div style="display: flex; gap: 5px;">
             <button onclick="BackToGenre()">Go Back</button>
 
-            <form id="deleteForm" method="POST" action="/Genres/<%= collectionName %>/<%= document._id %>?_method=DELETE">
+            <form id="deleteForm" method="POST" action="<%= BASE_URL %>/Genres/<%= collectionName %>/<%= document._id %>?_method=DELETE">
               <input type="hidden" name="_method" value="DELETE">
               <button type="button" onclick="deleteGame()">Delete Game</button>
             </form>
