@@ -19,7 +19,7 @@ const port = process.env.PORT || 3000;
 const BASE_URL = process.env.BASE_URL || `http://localhost:${port}`;
 
 router.get("/AddGenre", (req, res, next) => {
-    res.render('AddGenre');
+    res.render('AddGenre', { BASE_URL: BASE_URL });
 });
 
 router.get("/AddGame/:collectionName", (req, res, next) => {
@@ -37,7 +37,7 @@ router.get("/:collectionName/:documentId", async (req, res, next) => {
         const database = client.db('GameGenres');
         const collection = database.collection(collectionName);
         const document = await collection.findOne({ _id: new ObjectId(documentId) });
-        res.render('SpecificGame', { document, collectionName, BASE_URL: BASE_URL });
+        res.render('SpecificGame', { document , collectionName , BASE_URL: BASE_URL });
     } catch (error) {
         console.error('Error:', error);
         res.status(500).send('Internal Server Error');
@@ -52,7 +52,7 @@ router.get("/:collectionName", async (req, res, next) => {
         const collection = database.collection(collectionName);
         const document = await collection.find({}).toArray();
         await client.close();
-        res.render('SpecificGenre', { document, collectionName, BASE_URL: BASE_URL });
+        res.render('SpecificGenre', { document, collectionName , BASE_URL: BASE_URL });
     } catch (error) {
         console.error('Error:', error);
         res.status(500).send('Internal Server Error');
@@ -65,7 +65,7 @@ router.get("/", async (req, res, next) => {
         const database = client.db();
         const collections = await database.listCollections().toArray();
         const collectionNames = collections.map(collection => collection.name);
-        res.render('Genres', { collectionNames, BASE_URL: BASE_URL });
+        res.render('Genres', { collectionNames , BASE_URL: BASE_URL });
     } catch (error) {
         console.error('Error:', error);
         res.status(500).send('Internal Server Error');
