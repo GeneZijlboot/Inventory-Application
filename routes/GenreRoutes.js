@@ -13,6 +13,9 @@ router.use(methodOverride('_method'));
 const dotenv = require("dotenv"); // Add this line to require dotenv
 // Load environment variables from a .env file
 dotenv.config();
+
+const port = process.env.PORT || 3000;
+
 const BASE_URL = process.env.BASE_URL || `http://localhost:${port}`;
 
 router.get("/AddGenre", (req, res, next) => {
@@ -141,8 +144,5 @@ router.delete("/:collectionName", async (req, res, next) => {
         res.status(500).send('Internal Server Error');
     }
 });
-
-
-
 
 module.exports = router;

@@ -4,12 +4,13 @@ const app = express();
 //setting up view enging
 app.set('view engine', 'ejs');
 
-//setting port
-const PORT = 3000;
-
 const dotenv = require("dotenv"); // Add this line to require dotenv
 // Load environment variables from a .env file
 dotenv.config();
+
+//setting port
+const port = process.env.PORT || 3000;
+
 const BASE_URL = process.env.BASE_URL || `http://localhost:${port}`;
 
 //getting function to load database data
@@ -49,9 +50,9 @@ const genreRouter = require('./routes/GenreRoutes');
 app.use('/Genres', genreRouter) ;
 
 //run the server on port 3000
-app.listen(PORT, async () => {
+app.listen(port, async () => {
     try {
-        console.log(`Server running on: ${BASE_URL}`);
+        console.log(`Server running on: ${port}`);
     } catch(error){
         console.log(error);
         process.exit(1);
